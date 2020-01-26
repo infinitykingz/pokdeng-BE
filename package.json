@@ -1,6 +1,6 @@
 {
   "name": "pokdeng-test",
-  "description": "",
+  "description": "No description",
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
@@ -8,8 +8,8 @@
     "feathers"
   ],
   "author": {
-    "name": "",
-    "email": "example@email.com"
+    "name": "EvolutionKinGz",
+    "email": "absolute274@gmail.com"
   },
   "contributors": [],
   "bugs": {},
@@ -30,22 +30,23 @@
     "mocha": "mocha test/ --recursive --exit"
   },
   "dependencies": {
-    "@feathersjs/configuration": "^4.5.0",
-    "@feathersjs/errors": "^4.5.0",
-    "@feathersjs/express": "^4.5.0",
-    "@feathersjs/feathers": "^4.5.0",
-    "@feathersjs/socketio": "^4.5.0",
-    "@feathersjs/transport-commons": "^4.5.0",
+    "@feathersjs/configuration": "^4.5.1",
+    "@feathersjs/errors": "^4.5.1",
+    "@feathersjs/express": "^4.5.1",
+    "@feathersjs/feathers": "^4.5.1",
+    "@feathersjs/socketio": "^4.5.1",
+    "@feathersjs/transport-commons": "^4.5.1",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
-    "feathers-nedb": "^5.1.0",
+    "feathers-mongodb": "^6.1.0",
     "helmet": "^3.21.2",
-    "nedb": "^1.8.0",
+    "mongodb": "^3.5.2",
+    "mongodb-core": "^3.2.7",
     "serve-favicon": "^2.5.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.19.2",
     "eslint": "^6.8.0",
     "mocha": "^6.2.2",
     "nodemon": "^2.0.2"

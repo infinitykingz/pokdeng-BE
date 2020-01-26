@@ -7,8 +7,12 @@ module.exports = function(app) {
   app.on('connection', connection => {
     // On a new real-time connection, add it to the anonymous channel
     app.channel('anonymous').join(connection);
-  });
 
+    app.service('rooms').on('created', (room) => {
+      app.channel('rooms/' + room._id).join(connection);
+    });
+  });
+  
   app.on('login', (authResult, { connection }) => {
     // connection can be undefined if there is no
     // real-time connection, e.g. when logging in via REST
@@ -49,7 +53,16 @@ module.exports = function(app) {
 
   // Here you can also add service specific event publishers
   // e.g. the publish the `users` service `created` event to the `admins` channel
-  // app.service('users').publish('created', () => app.channel('admins'));
+  // app.service('rooms').publish('patched', (room) => app.channel('rooms/' + room._id));
+  // app.service('rooms').publish('removed', (room) => app.channel('rooms/' + room._id));
+
+  app.service('rooms').publish((data, ctx) => {
+    console.log(data);
+    console.log(ctx.method);
+    return [
+      app.channel('rooms/' + data._id)
+    ];
+  });
   
   // With the userid and email organization from above you can easily select involved users
   // app.service('messages').publish(() => {
