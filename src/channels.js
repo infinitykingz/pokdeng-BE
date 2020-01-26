@@ -57,7 +57,7 @@ module.exports = function(app) {
   // app.service('rooms').publish('removed', (room) => app.channel('rooms/' + room._id));
 
   app.service('rooms').publish((data, ctx) => {
-    console.log(ctx.method, ' => ');
+    console.log('Method =>', ctx.method);
     console.log(data);
     return [
       app.channel('rooms/' + data._id)
