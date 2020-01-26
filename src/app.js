@@ -10,7 +10,6 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 
-
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
@@ -34,7 +33,11 @@ app.use('/', express.static(app.get('public')));
 
 // Set up Plugins and providers
 app.configure(express.rest());
-app.configure(socketio());
+app.configure(
+  socketio(io => {
+    io.sockets.setMaxListeners(0);
+  })
+);
 
 app.configure(mongodb);
 
