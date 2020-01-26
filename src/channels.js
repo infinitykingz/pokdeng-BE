@@ -67,10 +67,12 @@ module.exports = function(app) {
   // app.service('rooms').publish('patched', (room) => app.channel('rooms/' + room._id));
   // app.service('rooms').publish('removed', (room) => app.channel('rooms/' + room._id));
 
-  app.service('rooms').publish(data => {
-    // console.log(ctx.method, ' => ');
-    // console.log(data);
-    return [app.channel('rooms/' + data._id)];
+  app.service('rooms').publish((data, ctx) => {
+    console.log('Method =>', ctx.method);
+    console.log(data);
+    return [
+      app.channel('rooms/' + data._id)
+    ];
   });
 
   // With the userid and email organization from above you can easily select involved users
