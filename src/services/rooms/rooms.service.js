@@ -2,7 +2,7 @@
 const { Rooms } = require('./rooms.class');
 const hooks = require('./rooms.hooks');
 
-module.exports = function (app) {
+module.exports = function(app) {
   const options = {
     paginate: app.get('paginate')
   };
