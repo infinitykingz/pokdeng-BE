@@ -3,7 +3,7 @@ const { Rooms } = require('./rooms.class');
 const createModel = require('../../models/rooms.model');
 const hooks = require('./rooms.hooks');
 
-module.exports = function (app) {
+module.exports = function(app) {
   const options = {
     Model: createModel(app),
     paginate: app.get('paginate')
